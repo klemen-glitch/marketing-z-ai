@@ -1,0 +1,172 @@
+---
+---
+
+<!-- GDPR Cookie Consent Banner -->
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6 hidden">
+  <div class="max-w-5xl mx-auto">
+    <div class="rounded-2xl border border-neon-cyan/30 p-5 sm:p-6 backdrop-blur-md"
+         style="background: rgba(13, 18, 38, 0.97); box-shadow: 0 -4px 40px rgba(0,240,255,0.1);">
+      <div class="flex flex-col sm:flex-row gap-5 items-start sm:items-center">
+
+        <!-- Besedilo -->
+        <div class="flex-1">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-lg">🍪</span>
+            <h3 class="text-white font-bold text-sm">Nastavitve piškotkov</h3>
+            <span class="text-xs font-mono text-neon-cyan border border-neon-cyan/30 px-1.5 py-0.5 rounded">GDPR</span>
+          </div>
+          <p class="text-gray-400 text-xs leading-relaxed">
+            Uporabljamo <strong class="text-white">nujne piškotke</strong> (tehnično delovanje) in — z vašo privolitvijo — <strong class="text-white">analitične piškotke</strong> (Google Analytics za izboljšanje strani). Vaša privolitev je prostovoljna in jo kadar koli prekličete.
+            <a href="/privacy-policy#piškotki" class="text-neon-cyan hover:underline ml-1">Več o piškotkih →</a>
+          </p>
+        </div>
+
+        <!-- Gumbi -->
+        <div class="flex flex-col sm:flex-row gap-2 flex-shrink-0 w-full sm:w-auto">
+          <button
+            id="cookie-reject"
+            class="px-4 py-2.5 rounded-lg text-sm font-semibold text-gray-400 border border-dark-border hover:border-gray-500 hover:text-white transition-all duration-200 text-center"
+          >
+            Zavrni neobvezne
+          </button>
+          <button
+            id="cookie-settings"
+            class="px-4 py-2.5 rounded-lg text-sm font-semibold text-neon-purple border border-neon-purple/40 hover:bg-neon-purple/10 transition-all duration-200 text-center"
+          >
+            Nastavitve
+          </button>
+          <button
+            id="cookie-accept"
+            class="px-4 py-2.5 rounded-lg text-sm font-bold text-dark-bg transition-all duration-200 hover:scale-105 text-center"
+            style="background: linear-gradient(135deg, #00f0ff, #0080ff); box-shadow: 0 0 15px rgba(0,240,255,0.3);"
+          >
+            Sprejmi vse
+          </button>
+        </div>
+      </div>
+
+      <!-- Napredne nastavitve (skrite privzeto) -->
+      <div id="cookie-details" class="hidden mt-4 pt-4 border-t border-dark-border">
+        <p class="text-xs text-gray-500 mb-3 font-mono uppercase tracking-wide">Upravljanje kategorij piškotkov:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+          <div class="flex items-start gap-3 p-3 rounded-lg bg-dark-card border border-dark-border">
+            <div class="mt-0.5">
+              <div class="w-10 h-5 rounded-full bg-neon-lime flex items-center justify-end px-0.5 cursor-not-allowed opacity-80">
+                <div class="w-4 h-4 rounded-full bg-white"></div>
+              </div>
+            </div>
+            <div>
+              <p class="text-white text-sm font-semibold">Nujni piškotki</p>
+              <p class="text-gray-500 text-xs">Vedno aktivni — tehnično delovanje</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 p-3 rounded-lg bg-dark-card border border-dark-border">
+            <div class="mt-0.5">
+              <button
+                id="toggle-analytics"
+                class="w-10 h-5 rounded-full bg-dark-border flex items-center px-0.5 transition-all duration-300"
+                data-active="false"
+                aria-label="Vklop/izklop analitičnih piškotkov"
+              >
+                <div id="toggle-knob" class="w-4 h-4 rounded-full bg-gray-500 transition-all duration-300"></div>
+              </button>
+            </div>
+            <div>
+              <p class="text-white text-sm font-semibold">Analitični piškotki</p>
+              <p class="text-gray-500 text-xs">Google Analytics — statistika obiskov</p>
+            </div>
+          </div>
+        </div>
+
+        <button
+          id="cookie-save-settings"
+          class="mt-4 px-5 py-2 rounded-lg text-sm font-bold text-dark-bg transition-all hover:scale-105"
+          style="background: linear-gradient(135deg, #b400ff, #ff006e);"
+        >
+          Shrani nastavitve
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Cookie consent logika
+  const COOKIE_KEY = 'mzai_cookie_consent';
+  const banner = document.getElementById('cookie-banner');
+  const detailsPanel = document.getElementById('cookie-details');
+  const toggle = document.getElementById('toggle-analytics');
+  const knob = document.getElementById('toggle-knob');
+
+  // Pokaži banner če privolitev še ni shranjena
+  const stored = localStorage.getItem(COOKIE_KEY);
+  if (!stored) {
+    setTimeout(() => banner?.classList.remove('hidden'), 800);
+  } else {
+    const consent = JSON.parse(stored);
+    if (consent.analytics) loadAnalytics();
+  }
+
+  // Gumb: Sprejmi vse
+  document.getElementById('cookie-accept')?.addEventListener('click', () => {
+    saveConsent({ necessary: true, analytics: true });
+    loadAnalytics();
+    hideBanner();
+  });
+
+  // Gumb: Zavrni
+  document.getElementById('cookie-reject')?.addEventListener('click', () => {
+    saveConsent({ necessary: true, analytics: false });
+    hideBanner();
+  });
+
+  // Gumb: Nastavitve
+  document.getElementById('cookie-settings')?.addEventListener('click', () => {
+    detailsPanel?.classList.toggle('hidden');
+  });
+
+  // Toggle analitika
+  let analyticsEnabled = false;
+  toggle?.addEventListener('click', () => {
+    analyticsEnabled = !analyticsEnabled;
+    if (analyticsEnabled) {
+      toggle!.style.background = '#b400ff';
+      toggle!.style.justifyContent = 'flex-end';
+      knob!.style.background = 'white';
+    } else {
+      toggle!.style.background = '';
+      toggle!.style.justifyContent = 'flex-start';
+      knob!.style.background = '#6b7280';
+    }
+    toggle!.dataset.active = String(analyticsEnabled);
+  });
+
+  // Shrani nastavitve
+  document.getElementById('cookie-save-settings')?.addEventListener('click', () => {
+    saveConsent({ necessary: true, analytics: analyticsEnabled });
+    if (analyticsEnabled) loadAnalytics();
+    hideBanner();
+  });
+
+  function saveConsent(consent: { necessary: boolean; analytics: boolean }) {
+    localStorage.setItem(COOKIE_KEY, JSON.stringify({
+      ...consent,
+      timestamp: new Date().toISOString()
+    }));
+  }
+
+  function hideBanner() {
+    banner?.classList.add('hidden');
+  }
+
+  function loadAnalytics() {
+    // Google Analytics se naloži šele po privolitvi
+    // Zamenjaj G-XXXXXXXX z vašim GA4 ID
+    // const script = document.createElement('script');
+    // script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX';
+    // document.head.appendChild(script);
+    console.log('Analytics enabled (dodajte GA4 ID)');
+  }
+</script>

@@ -1,0 +1,92 @@
+---
+const modules = [
+  {
+    title: "Meta Lead Generation",
+    lessons: 6,
+    duration: "2h",
+    icon: "📱"
+  },
+  {
+    title: "Google Ads Optimizacija",
+    lessons: 5,
+    duration: "1.5h",
+    icon: "🔍"
+  },
+  {
+    title: "CRM Avtomatizacija",
+    lessons: 7,
+    duration: "3h",
+    icon: "🔗"
+  },
+  {
+    title: "AI Reporting",
+    lessons: 4,
+    duration: "1h",
+    icon: "📊"
+  },
+  {
+    title: "AI Support Agenti",
+    lessons: 6,
+    duration: "2.5h",
+    icon: "🤖"
+  },
+  {
+    title: "Call Analytics",
+    lessons: 4,
+    duration: "1.5h",
+    icon: "🎙️"
+  }
+];
+---
+
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent via-dark-bg to-transparent">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl sm:text-5xl font-bold mb-4">
+        <span class="bg-gradient-to-r from-neon-purple to-neon-pink bg-clip-text text-transparent">
+          Learning Hub
+        </span>
+      </h2>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+        Študirajte na lastnem tempu z našimi strukturiranimi tečaji in mikro-vsebino.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      {modules.map((module) => (
+        <div
+          key={module.title}
+          class="group relative p-6 rounded-xl bg-[#1a1f3a] border border-[#2d3561] hover:border-neon-purple/50 transition-all duration-300 cursor-pointer hover:translate-y-[-4px]"
+        >
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-3xl">{module.icon}</span>
+            <span class="text-xs bg-neon-purple/20 text-neon-purple px-3 py-1 rounded-full">Nov</span>
+          </div>
+
+          <h3 class="text-lg font-bold text-white mb-2 group-hover:text-neon-purple transition-colors">
+            {module.title}
+          </h3>
+
+          <div class="space-y-2 mb-4 text-sm text-gray-400">
+            <div>📚 {module.lessons} lekcij</div>
+            <div>⏱️ {module.duration} naučnega časa</div>
+          </div>
+
+          <button class="w-full py-2 px-4 rounded-lg bg-neon-purple/20 text-neon-purple hover:bg-neon-purple/30 transition-colors font-semibold text-sm">
+            Začni tečaj
+          </button>
+        </div>
+      ))}
+    </div>
+
+    <div class="rounded-xl bg-gradient-to-r from-neon-cyan/10 to-neon-purple/10 border border-[#2d3561] p-8 text-center">
+      <h3 class="text-2xl font-bold mb-3">Niste sigurni, kje začeti?</h3>
+      <p class="text-gray-400 mb-6 max-w-2xl mx-auto">
+        Naš AI-vodnik vas bo vodil skozi personalizirane priporoče glede na vaše potrebe in cilje.
+      </p>
+      <button class="px-6 py-3 bg-gradient-to-r from-neon-cyan to-neon-blue rounded-lg font-bold text-dark-bg hover:shadow-lg hover:shadow-neon-cyan/50 transition-all">
+        Najdi svoj tečaj
+      </button>
+    </div>
+  </div>
+</section>

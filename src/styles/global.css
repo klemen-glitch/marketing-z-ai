@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* Tailwind 4 custom barve - morajo biti tukaj, ne v tailwind.config.mjs */
+@theme {
+  --color-neon-cyan: #00f0ff;
+  --color-neon-purple: #b400ff;
+  --color-neon-pink: #ff006e;
+  --color-neon-blue: #0080ff;
+  --color-neon-lime: #39ff14;
+  --color-dark-bg: #0a0e27;
+  --color-dark-card: #1a1f3a;
+  --color-dark-border: #2d3561;
+
+  --animate-glow: glow 2s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: #0a0e27;
+    color: white;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.6));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.9));
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-gradient {
+  animation: gradient-shift 3s ease infinite;
+  background-size: 200% 200%;
+}

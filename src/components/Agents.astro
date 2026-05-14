@@ -1,0 +1,447 @@
+---
+const agents = [
+  {
+    id: "AG-01",
+    name: "Meta Lead Agent",
+    role: "Facebook & Instagram",
+    description: "Lovi potencialne stranke 24/7. Analizira vedenje, ocenjuje leade z AI in jih posreduje prodaji – le najtoplejše.",
+    borderColor: "#00f0ff",
+    glowColor: "rgba(0, 240, 255, 0.3)",
+    stats: ["CPL ↓ 40%", "Leadi ↑ 3x", "24/7"],
+    svg: `<svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Telo - angular cyber -->
+      <path d="M28 78 L20 120 L80 120 L72 78 Z" fill="#0d1226" stroke="#00f0ff" stroke-width="1.5"/>
+      <!-- Telo detajl - panel lines -->
+      <line x1="40" y1="85" x2="38" y2="110" stroke="#00f0ff" stroke-width="0.8" opacity="0.4"/>
+      <line x1="60" y1="85" x2="62" y2="110" stroke="#00f0ff" stroke-width="0.8" opacity="0.4"/>
+      <rect x="42" y="92" width="16" height="8" rx="1" fill="#00f0ff" opacity="0.08" stroke="#00f0ff" stroke-width="0.8"/>
+      <!-- Neon core na prsih -->
+      <rect x="46" y="94" width="8" height="4" rx="1" fill="#00f0ff" opacity="0.6"/>
+      <!-- Roke - mehanične -->
+      <path d="M28 78 L10 90 L14 108 L24 102 L28 90 Z" fill="#0d1226" stroke="#00f0ff" stroke-width="1.5"/>
+      <path d="M72 78 L90 90 L86 108 L76 102 L72 90 Z" fill="#0d1226" stroke="#00f0ff" stroke-width="1.5"/>
+      <!-- Sklep roke -->
+      <circle cx="19" cy="95" r="4" fill="#0d1226" stroke="#00f0ff" stroke-width="1.5"/>
+      <circle cx="81" cy="95" r="4" fill="#0d1226" stroke="#00f0ff" stroke-width="1.5"/>
+      <!-- Vrat - cyber collar -->
+      <rect x="38" y="70" width="24" height="10" rx="2" fill="#0d1226" stroke="#00f0ff" stroke-width="1.5"/>
+      <line x1="44" y1="73" x2="44" y2="77" stroke="#00f0ff" stroke-width="1" opacity="0.5"/>
+      <line x1="50" y1="73" x2="50" y2="77" stroke="#00f0ff" stroke-width="1" opacity="0.5"/>
+      <line x1="56" y1="73" x2="56" y2="77" stroke="#00f0ff" stroke-width="1" opacity="0.5"/>
+      <!-- Glava - hexagonalna -->
+      <path d="M50 4 L78 18 L82 48 L70 68 L30 68 L18 48 L22 18 Z" fill="#0d1226" stroke="#00f0ff" stroke-width="2"/>
+      <!-- Notranje ozadje glave -->
+      <path d="M50 10 L74 22 L78 46 L68 62 L32 62 L22 46 L26 22 Z" fill="#00f0ff" opacity="0.03"/>
+      <!-- Antena - tanka, elegantna -->
+      <line x1="50" y1="4" x2="50" y2="0" stroke="#00f0ff" stroke-width="2"/>
+      <rect x="44" y="-4" width="12" height="5" rx="1" fill="#00f0ff" opacity="0.8"/>
+      <!-- Vizir / oči - en velik scan bar -->
+      <rect x="24" y="28" width="52" height="18" rx="3" fill="#00f0ff" opacity="0.08" stroke="#00f0ff" stroke-width="1.5"/>
+      <!-- Scan line efekt -->
+      <rect x="24" y="34" width="52" height="2" fill="#00f0ff" opacity="0.5"/>
+      <!-- Oči - dve svetleči točki v vizirju -->
+      <rect x="30" y="30" width="14" height="14" rx="2" fill="#001a2e" stroke="#00f0ff" stroke-width="1"/>
+      <rect x="56" y="30" width="14" height="14" rx="2" fill="#001a2e" stroke="#00f0ff" stroke-width="1"/>
+      <!-- Pupile - animirani scan -->
+      <rect x="33" y="33" width="8" height="8" rx="1" fill="#00f0ff" opacity="0.9"/>
+      <rect x="59" y="33" width="8" height="8" rx="1" fill="#00f0ff" opacity="0.9"/>
+      <!-- Lesketanje tech -->
+      <line x1="34" y1="34" x2="40" y2="34" stroke="white" stroke-width="1" opacity="0.6"/>
+      <line x1="60" y1="34" x2="66" y2="34" stroke="white" stroke-width="1" opacity="0.6"/>
+      <!-- Nos - nič, samo tech panel -->
+      <rect x="46" y="50" width="8" height="4" rx="1" fill="#00f0ff" opacity="0.2"/>
+      <!-- Usta - tech grid -->
+      <rect x="34" y="57" width="32" height="6" rx="1" fill="none" stroke="#00f0ff" stroke-width="1"/>
+      <line x1="40" y1="57" x2="40" y2="63" stroke="#00f0ff" stroke-width="0.8" opacity="0.5"/>
+      <line x1="46" y1="57" x2="46" y2="63" stroke="#00f0ff" stroke-width="0.8" opacity="0.5"/>
+      <line x1="52" y1="57" x2="52" y2="63" stroke="#00f0ff" stroke-width="0.8" opacity="0.5"/>
+      <line x1="58" y1="57" x2="58" y2="63" stroke="#00f0ff" stroke-width="0.8" opacity="0.5"/>
+      <!-- Strani glave - cyber implant -->
+      <rect x="14" y="32" width="8" height="18" rx="2" fill="#0d1226" stroke="#00f0ff" stroke-width="1.5"/>
+      <rect x="78" y="32" width="8" height="18" rx="2" fill="#0d1226" stroke="#00f0ff" stroke-width="1.5"/>
+      <line x1="14" y1="38" x2="22" y2="38" stroke="#00f0ff" stroke-width="1" opacity="0.5"/>
+      <line x1="78" y1="38" x2="86" y2="38" stroke="#00f0ff" stroke-width="1" opacity="0.5"/>
+      <line x1="14" y1="44" x2="22" y2="44" stroke="#00f0ff" stroke-width="1" opacity="0.5"/>
+      <line x1="78" y1="44" x2="86" y2="44" stroke="#00f0ff" stroke-width="1" opacity="0.5"/>
+    </svg>`
+  },
+  {
+    id: "AG-02",
+    name: "Google Ads Agent",
+    role: "Search & Performance Max",
+    description: "Skenira iskalce z nakupnim namenom. Optimizira bid strategije v realnem času in upravlja Performance Max kampanje.",
+    borderColor: "#4d9fff",
+    glowColor: "rgba(77, 159, 255, 0.3)",
+    stats: ["ROAS ↑ 60%", "CPA ↓ 30%", "PMax"],
+    svg: `<svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Telo -->
+      <rect x="26" y="76" width="48" height="44" rx="4" fill="#0d1226" stroke="#4d9fff" stroke-width="1.5"/>
+      <!-- Panel lines telo -->
+      <line x1="50" y1="80" x2="50" y2="116" stroke="#4d9fff" stroke-width="0.8" opacity="0.3"/>
+      <rect x="36" y="86" width="10" height="6" rx="1" fill="#4d9fff" opacity="0.15" stroke="#4d9fff" stroke-width="0.8"/>
+      <rect x="54" y="86" width="10" height="6" rx="1" fill="#4d9fff" opacity="0.15" stroke="#4d9fff" stroke-width="0.8"/>
+      <!-- Prsni reaktor - krog -->
+      <circle cx="50" cy="103" r="7" fill="#0d1226" stroke="#4d9fff" stroke-width="1.5"/>
+      <circle cx="50" cy="103" r="4" fill="#4d9fff" opacity="0.4"/>
+      <circle cx="50" cy="103" r="2" fill="#4d9fff" opacity="0.9"/>
+      <!-- Roke - cilindrične -->
+      <rect x="10" y="76" width="14" height="34" rx="6" fill="#0d1226" stroke="#4d9fff" stroke-width="1.5"/>
+      <rect x="76" y="76" width="14" height="34" rx="6" fill="#0d1226" stroke="#4d9fff" stroke-width="1.5"/>
+      <rect x="12" y="90" width="10" height="2" rx="1" fill="#4d9fff" opacity="0.5"/>
+      <rect x="78" y="90" width="10" height="2" rx="1" fill="#4d9fff" opacity="0.5"/>
+      <rect x="12" y="96" width="10" height="2" rx="1" fill="#4d9fff" opacity="0.5"/>
+      <rect x="78" y="96" width="10" height="2" rx="1" fill="#4d9fff" opacity="0.5"/>
+      <!-- Vrat -->
+      <rect x="40" y="68" width="20" height="10" rx="2" fill="#0d1226" stroke="#4d9fff" stroke-width="1.5"/>
+      <!-- Glava - bolj kvadratna, heavy duty -->
+      <rect x="16" y="10" width="68" height="60" rx="8" fill="#0d1226" stroke="#4d9fff" stroke-width="2"/>
+      <!-- Vizir - cel pas čez glavo -->
+      <rect x="16" y="26" width="68" height="22" rx="2" fill="#4d9fff" opacity="0.06" stroke="#4d9fff" stroke-width="1.5"/>
+      <!-- Oči - dve rectangularni, intense -->
+      <rect x="24" y="30" width="22" height="14" rx="2" fill="#001933" stroke="#4d9fff" stroke-width="1.5"/>
+      <rect x="54" y="30" width="22" height="14" rx="2" fill="#001933" stroke="#4d9fff" stroke-width="1.5"/>
+      <!-- Scan line v očeh -->
+      <rect x="24" y="36" width="22" height="2" fill="#4d9fff" opacity="0.7"/>
+      <rect x="54" y="36" width="22" height="2" fill="#4d9fff" opacity="0.7"/>
+      <!-- Aktivni piksli v očeh -->
+      <rect x="28" y="31" width="6" height="6" rx="1" fill="#4d9fff" opacity="0.8"/>
+      <rect x="36" y="31" width="6" height="6" rx="1" fill="#4d9fff" opacity="0.4"/>
+      <rect x="58" y="31" width="6" height="6" rx="1" fill="#4d9fff" opacity="0.8"/>
+      <rect x="66" y="31" width="6" height="6" rx="1" fill="#4d9fff" opacity="0.4"/>
+      <!-- Antena - dvojna, military style -->
+      <rect x="28" y="2" width="4" height="10" rx="2" fill="#4d9fff" opacity="0.8"/>
+      <rect x="68" y="2" width="4" height="10" rx="2" fill="#4d9fff" opacity="0.8"/>
+      <circle cx="30" cy="2" r="3" fill="#4d9fff"/>
+      <circle cx="70" cy="2" r="3" fill="#4d9fff"/>
+      <!-- Usta - data output -->
+      <rect x="30" y="54" width="40" height="10" rx="2" fill="#001933" stroke="#4d9fff" stroke-width="1"/>
+      <rect x="32" y="56" width="24" height="6" rx="1" fill="#4d9fff" opacity="0.3"/>
+      <!-- Implanti na strani -->
+      <rect x="8" y="20" width="8" height="30" rx="3" fill="#0d1226" stroke="#4d9fff" stroke-width="1.5"/>
+      <rect x="84" y="20" width="8" height="30" rx="3" fill="#0d1226" stroke="#4d9fff" stroke-width="1.5"/>
+      <circle cx="12" cy="35" r="3" fill="#4d9fff" opacity="0.6"/>
+      <circle cx="88" cy="35" r="3" fill="#4d9fff" opacity="0.6"/>
+    </svg>`
+  },
+  {
+    id: "AG-03",
+    name: "CRM Agent",
+    role: "Integracije & Atribucija",
+    description: "Poveže vse kanale v eno resnico. Sledi vsakemu leadu od prvega dotika do prodaje in atribuira vsak euro pravilno.",
+    borderColor: "#b400ff",
+    glowColor: "rgba(180, 0, 255, 0.3)",
+    stats: ["Atribucija 100%", "ROI 8.7x", "5-plast"],
+    svg: `<svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Telo - sleek, tanek -->
+      <path d="M32 76 L26 120 L74 120 L68 76 Z" fill="#0d1226" stroke="#b400ff" stroke-width="1.5"/>
+      <!-- Network lines na telesu -->
+      <circle cx="50" cy="98" r="6" fill="#0d1226" stroke="#b400ff" stroke-width="1.5"/>
+      <circle cx="50" cy="98" r="3" fill="#b400ff" opacity="0.5"/>
+      <line x1="38" y1="88" x2="50" y2="95" stroke="#b400ff" stroke-width="1" opacity="0.4"/>
+      <line x1="62" y1="88" x2="50" y2="95" stroke="#b400ff" stroke-width="1" opacity="0.4"/>
+      <circle cx="36" cy="86" r="3" fill="#b400ff" opacity="0.4"/>
+      <circle cx="64" cy="86" r="3" fill="#b400ff" opacity="0.4"/>
+      <!-- Roke - tanke, elegantne -->
+      <path d="M32 76 L16 82 L12 104 L22 106 L28 88 Z" fill="#0d1226" stroke="#b400ff" stroke-width="1.5"/>
+      <path d="M68 76 L84 82 L88 104 L78 106 L72 88 Z" fill="#0d1226" stroke="#b400ff" stroke-width="1.5"/>
+      <!-- Roka - data connector -->
+      <rect x="10" y="104" width="14" height="4" rx="2" fill="#b400ff" opacity="0.6"/>
+      <rect x="76" y="104" width="14" height="4" rx="2" fill="#b400ff" opacity="0.6"/>
+      <!-- Vrat - slim -->
+      <rect x="42" y="68" width="16" height="10" rx="3" fill="#0d1226" stroke="#b400ff" stroke-width="1.5"/>
+      <!-- Glava - ovoid, futuristic -->
+      <ellipse cx="50" cy="40" rx="32" ry="36" fill="#0d1226" stroke="#b400ff" stroke-width="2"/>
+      <!-- Zunanji obroč - orbit ring -->
+      <ellipse cx="50" cy="40" rx="38" ry="10" fill="none" stroke="#b400ff" stroke-width="1" opacity="0.3" transform="rotate(-20 50 40)"/>
+      <!-- Vizir - cel čez lica -->
+      <ellipse cx="50" cy="40" rx="26" ry="14" fill="#b400ff" opacity="0.05" stroke="#b400ff" stroke-width="1"/>
+      <!-- Oči - diamantne, intenzivne -->
+      <path d="M28 38 L35 44 L28 50 L21 44 Z" fill="#b400ff" opacity="0.9"/>
+      <path d="M72 38 L79 44 L72 50 L65 44 Z" fill="#b400ff" opacity="0.9"/>
+      <!-- Notranjost oči -->
+      <path d="M28 40 L33 44 L28 48 L23 44 Z" fill="#1a0033"/>
+      <path d="M72 40 L77 44 L72 48 L67 44 Z" fill="#1a0033"/>
+      <!-- Svetleče jedro -->
+      <circle cx="28" cy="44" r="2" fill="#b400ff"/>
+      <circle cx="72" cy="44" r="2" fill="#b400ff"/>
+      <!-- Nos - tech node -->
+      <circle cx="50" cy="52" r="3" fill="#0d1226" stroke="#b400ff" stroke-width="1.5"/>
+      <circle cx="50" cy="52" r="1.5" fill="#b400ff" opacity="0.7"/>
+      <!-- Usta - tanek slit -->
+      <path d="M38 62 L50 66 L62 62" stroke="#b400ff" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- Anteni - dolgi, vitkisi -->
+      <line x1="35" y1="6" x2="28" y2="-2" stroke="#b400ff" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="65" y1="6" x2="72" y2="-2" stroke="#b400ff" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="28" cy="-2" r="3" fill="#b400ff"/>
+      <circle cx="72" cy="-2" r="3" fill="#b400ff"/>
+    </svg>`
+  },
+  {
+    id: "AG-04",
+    name: "Report Agent",
+    role: "AI Analitika & Poročila",
+    description: "Pretvori surove podatke v jasne zgodbe. Tedenski KPI povzetki, anomaly alarmi in narativni vpogledi – brez čakanja.",
+    borderColor: "#39ff14",
+    glowColor: "rgba(57, 255, 20, 0.3)",
+    stats: ["3 dni → 2h", "Auto alarmi", "NLP"],
+    svg: `<svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Telo - blocky, data center style -->
+      <rect x="24" y="74" width="52" height="46" rx="3" fill="#0d1226" stroke="#39ff14" stroke-width="1.5"/>
+      <!-- Server rack lines -->
+      <rect x="28" y="78" width="44" height="6" rx="1" fill="#39ff14" opacity="0.1" stroke="#39ff14" stroke-width="0.8"/>
+      <rect x="28" y="88" width="44" height="6" rx="1" fill="#39ff14" opacity="0.1" stroke="#39ff14" stroke-width="0.8"/>
+      <rect x="28" y="98" width="44" height="6" rx="1" fill="#39ff14" opacity="0.1" stroke="#39ff14" stroke-width="0.8"/>
+      <!-- LED lučke -->
+      <circle cx="66" cy="81" r="2" fill="#39ff14" opacity="0.9"/>
+      <circle cx="60" cy="81" r="2" fill="#39ff14" opacity="0.5"/>
+      <circle cx="66" cy="91" r="2" fill="#39ff14" opacity="0.7"/>
+      <circle cx="60" cy="91" r="2" fill="#39ff14" opacity="0.3"/>
+      <!-- Graf v telesu -->
+      <polyline points="30,112 36,106 42,109 48,102 54,105 60,98 66,101" stroke="#39ff14" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <!-- Roke - stocky -->
+      <rect x="8" y="74" width="14" height="36" rx="4" fill="#0d1226" stroke="#39ff14" stroke-width="1.5"/>
+      <rect x="78" y="74" width="14" height="36" rx="4" fill="#0d1226" stroke="#39ff14" stroke-width="1.5"/>
+      <!-- Roka drži data tablet -->
+      <rect x="6" y="86" width="18" height="14" rx="2" fill="#001a00" stroke="#39ff14" stroke-width="1"/>
+      <polyline points="8,96 10,92 13,94 16,89 19,91 22,88" stroke="#39ff14" stroke-width="1" fill="none"/>
+      <!-- Vrat -->
+      <rect x="38" y="66" width="24" height="10" rx="2" fill="#0d1226" stroke="#39ff14" stroke-width="1.5"/>
+      <!-- Glava - hexagonalna, analytical -->
+      <polygon points="50,6 78,20 82,50 68,68 32,68 18,50 22,20" fill="#0d1226" stroke="#39ff14" stroke-width="2"/>
+      <!-- Notranji hex -->
+      <polygon points="50,12 74,24 78,48 66,62 34,62 22,48 26,24" fill="#39ff14" opacity="0.03"/>
+      <!-- Naočniki - dual monitor style -->
+      <rect x="22" y="28" width="24" height="20" rx="3" fill="#001a00" stroke="#39ff14" stroke-width="1.5"/>
+      <rect x="54" y="28" width="24" height="20" rx="3" fill="#001a00" stroke="#39ff14" stroke-width="1.5"/>
+      <line x1="46" y1="38" x2="54" y2="38" stroke="#39ff14" stroke-width="1.5"/>
+      <!-- Ekran v naočnikih -->
+      <polyline points="24,44 28,38 32,41 36,35 40,38 44,34" stroke="#39ff14" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <polyline points="56,44 60,38 64,41 68,35 72,38 76,34" stroke="#39ff14" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <!-- Antena z datastream -->
+      <line x1="50" y1="6" x2="50" y2="-2" stroke="#39ff14" stroke-width="2"/>
+      <rect x="42" y="-6" width="16" height="5" rx="1" fill="#39ff14" opacity="0.7"/>
+      <!-- Usta - progress bar -->
+      <rect x="34" y="56" width="32" height="7" rx="2" fill="#001a00" stroke="#39ff14" stroke-width="1"/>
+      <rect x="35" y="57" width="20" height="5" rx="1" fill="#39ff14" opacity="0.6"/>
+      <!-- Side vents -->
+      <line x1="14" y1="28" x2="22" y2="28" stroke="#39ff14" stroke-width="1" opacity="0.4"/>
+      <line x1="14" y1="33" x2="22" y2="33" stroke="#39ff14" stroke-width="1" opacity="0.4"/>
+      <line x1="14" y1="38" x2="22" y2="38" stroke="#39ff14" stroke-width="1" opacity="0.4"/>
+      <line x1="78" y1="28" x2="86" y2="28" stroke="#39ff14" stroke-width="1" opacity="0.4"/>
+      <line x1="78" y1="33" x2="86" y2="33" stroke="#39ff14" stroke-width="1" opacity="0.4"/>
+      <line x1="78" y1="38" x2="86" y2="38" stroke="#39ff14" stroke-width="1" opacity="0.4"/>
+    </svg>`
+  },
+  {
+    id: "AG-05",
+    name: "Support Agent",
+    role: "Podpora Strankam & RPA",
+    description: "Sprejema zahteve strank, razume kontekst in ukrepa – ponastavi gesla, kreira tikete, posodablja podatke. Sam.",
+    borderColor: "#ff006e",
+    glowColor: "rgba(255, 0, 110, 0.3)",
+    stats: ["80% auto", "24/7 aktiven", "Večjezičen"],
+    svg: `<svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Telo - warrior build, broad -->
+      <path d="M22 72 L18 120 L82 120 L78 72 Z" fill="#0d1226" stroke="#ff006e" stroke-width="1.5"/>
+      <!-- Oklep na prsih -->
+      <path d="M35 80 L50 74 L65 80 L65 100 L50 106 L35 100 Z" fill="#ff006e" opacity="0.08" stroke="#ff006e" stroke-width="1.5"/>
+      <!-- Ščitni emblem -->
+      <path d="M50 83 L56 86 L56 95 L50 98 L44 95 L44 86 Z" fill="#ff006e" opacity="0.15" stroke="#ff006e" stroke-width="1"/>
+      <line x1="50" y1="83" x2="50" y2="98" stroke="#ff006e" stroke-width="1" opacity="0.5"/>
+      <!-- Roke - broad, armored -->
+      <path d="M22 72 L4 80 L2 106 L16 108 L22 90 Z" fill="#0d1226" stroke="#ff006e" stroke-width="1.5"/>
+      <path d="M78 72 L96 80 L98 106 L84 108 L78 90 Z" fill="#0d1226" stroke="#ff006e" stroke-width="1.5"/>
+      <!-- Oklep na rokah -->
+      <rect x="4" y="84" width="12" height="16" rx="2" fill="#ff006e" opacity="0.1" stroke="#ff006e" stroke-width="1"/>
+      <rect x="84" y="84" width="12" height="16" rx="2" fill="#ff006e" opacity="0.1" stroke="#ff006e" stroke-width="1"/>
+      <!-- Vrat - thick -->
+      <rect x="36" y="64" width="28" height="10" rx="3" fill="#0d1226" stroke="#ff006e" stroke-width="2"/>
+      <line x1="42" y1="67" x2="42" y2="71" stroke="#ff006e" stroke-width="1" opacity="0.5"/>
+      <line x1="50" y1="67" x2="50" y2="71" stroke="#ff006e" stroke-width="1" opacity="0.5"/>
+      <line x1="58" y1="67" x2="58" y2="71" stroke="#ff006e" stroke-width="1" opacity="0.5"/>
+      <!-- Glava - wide, warrior helmet -->
+      <path d="M14 18 L18 10 L82 10 L86 18 L88 54 L78 64 L22 64 L12 54 Z" fill="#0d1226" stroke="#ff006e" stroke-width="2"/>
+      <!-- Helmet visor - aggressive angle -->
+      <path d="M18 28 L82 28 L80 48 L20 48 Z" fill="#ff006e" opacity="0.06" stroke="#ff006e" stroke-width="1.5"/>
+      <!-- Oči - trikotni, aggressive -->
+      <path d="M22 30 L38 30 L34 44 L22 44 Z" fill="#1a0010" stroke="#ff006e" stroke-width="1.5"/>
+      <path d="M62 30 L78 30 L78 44 L66 44 Z" fill="#1a0010" stroke="#ff006e" stroke-width="1.5"/>
+      <!-- Oko glow -->
+      <path d="M24 32 L36 32 L32 42 L24 42 Z" fill="#ff006e" opacity="0.3"/>
+      <path d="M64 32 L76 32 L76 42 L66 42 Z" fill="#ff006e" opacity="0.3"/>
+      <!-- Centralni svetleč element -->
+      <line x1="30" y1="36" x2="30" y2="40" stroke="#ff006e" stroke-width="3" stroke-linecap="round"/>
+      <line x1="28" y1="38" x2="32" y2="38" stroke="#ff006e" stroke-width="3" stroke-linecap="round"/>
+      <line x1="72" y1="36" x2="72" y2="40" stroke="#ff006e" stroke-width="3" stroke-linecap="round"/>
+      <line x1="70" y1="38" x2="74" y2="38" stroke="#ff006e" stroke-width="3" stroke-linecap="round"/>
+      <!-- Usta - determined slit -->
+      <rect x="34" y="54" width="32" height="6" rx="1" fill="#1a0010" stroke="#ff006e" stroke-width="1.5"/>
+      <rect x="36" y="55" width="10" height="4" rx="1" fill="#ff006e" opacity="0.5"/>
+      <rect x="54" y="55" width="10" height="4" rx="1" fill="#ff006e" opacity="0.5"/>
+      <!-- Helmet rogi/antene -->
+      <path d="M18 10 L10 0 L16 4 L18 10" fill="#ff006e" opacity="0.7"/>
+      <path d="M82 10 L90 0 L84 4 L82 10" fill="#ff006e" opacity="0.7"/>
+      <!-- Stranki ventilatorji -->
+      <rect x="4" y="24" width="10" height="24" rx="2" fill="#0d1226" stroke="#ff006e" stroke-width="1"/>
+      <rect x="86" y="24" width="10" height="24" rx="2" fill="#0d1226" stroke="#ff006e" stroke-width="1"/>
+      <line x1="4" y1="30" x2="14" y2="30" stroke="#ff006e" stroke-width="0.8" opacity="0.5"/>
+      <line x1="4" y1="36" x2="14" y2="36" stroke="#ff006e" stroke-width="0.8" opacity="0.5"/>
+      <line x1="4" y1="42" x2="14" y2="42" stroke="#ff006e" stroke-width="0.8" opacity="0.5"/>
+      <line x1="86" y1="30" x2="96" y2="30" stroke="#ff006e" stroke-width="0.8" opacity="0.5"/>
+      <line x1="86" y1="36" x2="96" y2="36" stroke="#ff006e" stroke-width="0.8" opacity="0.5"/>
+      <line x1="86" y1="42" x2="96" y2="42" stroke="#ff006e" stroke-width="0.8" opacity="0.5"/>
+    </svg>`
+  },
+  {
+    id: "AG-06",
+    name: "Call Agent",
+    role: "Transkripcija & Analiza",
+    description: "Posluša vsak klic, prepiše besede in izvleče ključne točke, sentiment in akcijske naloge – takoj po klicu v CRM.",
+    borderColor: "#00d4ff",
+    glowColor: "rgba(0, 212, 255, 0.3)",
+    stats: ["96% točnost", "Sentiment AI", "Auto CRM"],
+    svg: `<svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Telo - sleek, acoustic design -->
+      <ellipse cx="50" cy="98" rx="24" ry="22" fill="#0d1226" stroke="#00d4ff" stroke-width="1.5"/>
+      <!-- Sound wave pattern na telesu -->
+      <path d="M30 96 Q38 90 50 96 Q62 102 70 96" stroke="#00d4ff" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+      <path d="M34 102 Q42 97 50 102 Q58 107 66 102" stroke="#00d4ff" stroke-width="1" fill="none" stroke-linecap="round" opacity="0.4"/>
+      <!-- Mic element na prsih -->
+      <rect x="46" y="90" width="8" height="14" rx="4" fill="#0d1226" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="42" y1="108" x2="58" y2="108" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="50" y1="104" x2="50" y2="108" stroke="#00d4ff" stroke-width="1.5"/>
+      <!-- Roke - slušalke/headset cables -->
+      <path d="M26 82 Q12 78 10 92 L10 108 Q10 114 16 116 L24 116" stroke="#00d4ff" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M74 82 Q88 78 90 92 L90 108 Q90 114 84 116 L76 116" stroke="#00d4ff" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <!-- Headset earpiece -->
+      <rect x="6" y="88" width="12" height="22" rx="6" fill="#0d1226" stroke="#00d4ff" stroke-width="2"/>
+      <rect x="82" y="88" width="12" height="22" rx="6" fill="#0d1226" stroke="#00d4ff" stroke-width="2"/>
+      <circle cx="12" cy="99" r="5" fill="#00d4ff" opacity="0.3"/>
+      <circle cx="88" cy="99" r="5" fill="#00d4ff" opacity="0.3"/>
+      <circle cx="12" cy="99" r="2" fill="#00d4ff" opacity="0.8"/>
+      <circle cx="88" cy="99" r="2" fill="#00d4ff" opacity="0.8"/>
+      <!-- Glava - ovoid, smooth -->
+      <ellipse cx="50" cy="40" rx="34" ry="38" fill="#0d1226" stroke="#00d4ff" stroke-width="2"/>
+      <!-- Headset arc čez glavo -->
+      <path d="M16 40 C16 10 84 10 84 40" stroke="#00d4ff" stroke-width="3" fill="none"/>
+      <!-- Vizir - cel oval -->
+      <ellipse cx="50" cy="42" rx="26" ry="18" fill="#00d4ff" opacity="0.05" stroke="#00d4ff" stroke-width="1.5"/>
+      <!-- Oči - horizontalni scan bars -->
+      <rect x="22" y="34" width="20" height="12" rx="2" fill="#001a26" stroke="#00d4ff" stroke-width="1.5"/>
+      <rect x="58" y="34" width="20" height="12" rx="2" fill="#001a26" stroke="#00d4ff" stroke-width="1.5"/>
+      <!-- Audio visualizer v očeh -->
+      <line x1="25" y1="43" x2="25" y2="37" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="28" y1="44" x2="28" y2="36" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="31" y1="42" x2="31" y2="38" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="34" y1="43" x2="34" y2="37" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="37" y1="44" x2="37" y2="36" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="61" y1="43" x2="61" y2="37" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="64" y1="44" x2="64" y2="36" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="67" y1="42" x2="67" y2="38" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="70" y1="43" x2="70" y2="37" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="73" y1="44" x2="73" y2="36" stroke="#00d4ff" stroke-width="1.5"/>
+      <!-- Nos - mic symbol -->
+      <circle cx="50" cy="56" r="4" fill="#0d1226" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="50" y1="60" x2="50" y2="64" stroke="#00d4ff" stroke-width="1.5"/>
+      <line x1="46" y1="64" x2="54" y2="64" stroke="#00d4ff" stroke-width="1.5"/>
+      <!-- Usta - wave output -->
+      <path d="M36 70 Q43 66 50 70 Q57 74 64 70" stroke="#00d4ff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </svg>`
+  }
+];
+---
+
+<section class="py-20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <div class="inline-block px-4 py-2 bg-dark-card border border-neon-cyan/30 rounded-full mb-6">
+        <span class="text-neon-cyan text-sm font-semibold tracking-widest uppercase">⚡ Naša ekipa AI agentov</span>
+      </div>
+      <h2 class="text-4xl sm:text-5xl font-bold mb-4">
+        <span class="bg-gradient-to-r from-neon-cyan to-neon-blue bg-clip-text text-transparent">
+          6 Specializiranih Agentov
+        </span>
+      </h2>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+        Vsak agent je izurjen za svojo nalogo. Delujejo skupaj kot celovit sistem —
+        avtonomno, neprekinjeno, z enim ciljem: vaša rast.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {agents.map((agent) => (
+        <div
+          class="group relative rounded-2xl border transition-all duration-400 hover:scale-[1.03] overflow-hidden cursor-pointer"
+          style={`background: #0d1226; border-color: ${agent.borderColor}25;`}
+          onmouseenter={`this.style.borderColor='${agent.borderColor}70'; this.style.boxShadow='0 0 35px ${agent.glowColor}';`}
+          onmouseleave={`this.style.borderColor='${agent.borderColor}25'; this.style.boxShadow='none';`}
+        >
+          <!-- Scan line animacija ob hover -->
+          <div class="absolute inset-x-0 top-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+               style={`background: linear-gradient(to right, transparent, ${agent.borderColor}, transparent);`}></div>
+          <div class="absolute inset-x-0 bottom-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+               style={`background: linear-gradient(to right, transparent, ${agent.borderColor}, transparent);`}></div>
+
+          <!-- Glow ozadje -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+               style={`background: radial-gradient(ellipse at 50% 0%, ${agent.glowColor} 0%, transparent 60%);`}></div>
+
+          <div class="relative z-10 p-6 flex flex-col items-center text-center">
+            <!-- Header -->
+            <div class="w-full flex justify-between items-center mb-5">
+              <span class="text-xs font-mono px-2 py-1 rounded border"
+                    style={`color: ${agent.borderColor}; border-color: ${agent.borderColor}30; background: ${agent.borderColor}08;`}>
+                {agent.id}
+              </span>
+              <div class="flex items-center gap-1.5">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-lime opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-neon-lime"></span>
+                </span>
+                <span class="text-neon-lime text-xs font-mono">ACTIVE</span>
+              </div>
+            </div>
+
+            <!-- SVG Avatar -->
+            <div class="w-28 h-32 transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1"
+                 style={`filter: drop-shadow(0 0 12px ${agent.borderColor}60);`}
+                 set:html={agent.svg}/>
+
+            <!-- Ime = vloga -->
+            <h3 class="text-lg font-bold mt-4 mb-0.5 tracking-wide" style={`color: ${agent.borderColor};`}>
+              {agent.name}
+            </h3>
+            <p class="text-gray-600 text-xs font-mono mb-4 tracking-widest uppercase">{agent.role}</p>
+
+            <!-- Separator -->
+            <div class="w-full h-px mb-4"
+                 style={`background: linear-gradient(to right, transparent, ${agent.borderColor}35, transparent);`}></div>
+
+            <!-- Opis -->
+            <p class="text-gray-400 text-sm leading-relaxed mb-5">{agent.description}</p>
+
+            <!-- Stats -->
+            <div class="flex gap-2 justify-center flex-wrap">
+              {agent.stats.map(stat => (
+                <span class="text-xs font-mono px-2.5 py-1 rounded font-semibold"
+                      style={`color: ${agent.borderColor}; background: ${agent.borderColor}10; border: 1px solid ${agent.borderColor}25;`}>
+                  {stat}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 text-center">
+      <p class="text-gray-500 mb-6 font-mono text-sm tracking-wide uppercase">// Pripravljeni za aktivacijo</p>
+      <a href="#kontakt"
+         class="inline-block px-8 py-4 rounded-lg font-bold text-dark-bg transition-all duration-300 hover:scale-105"
+         style="background: linear-gradient(135deg, #00f0ff, #0080ff); box-shadow: 0 0 25px rgba(0,240,255,0.3);">
+        Aktiviraj agente →
+      </a>
+    </div>
+  </div>
+</section>

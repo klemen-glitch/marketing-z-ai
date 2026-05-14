@@ -1,0 +1,72 @@
+---
+const faqs = [
+  {
+    q: "Kako zagotovite GDPR skladnost pri FB lead generation?",
+    a: "Vsi procesi so zasnovani v skladu s predpisi: podatki se shranjujejo v varnih bazah s pravicami dostopa. Vsak lead je sledljiv s polnim audit trail."
+  },
+  {
+    q: "Katera orodja za AI-poročanje priporočate?",
+    a: "Priporočamo kombinacijo Lyzr za narativne povzetke in Google Data Studio za interaktivne dashboards. Izbira je odvisna od vaših potreb."
+  },
+  {
+    q: "Kako dolgo traja CRM implementacija?",
+    a: "Osnovana implementacija traja 1-2 meseca za manjša podjetja. Obsežne arhitekture s 5-plastno integracijo lahko trajajo 3-6 mesecev."
+  },
+  {
+    q: "Ali je mogoče AI-agente skalirati za večje količine?",
+    a: "Absolutno. Naši sistemi so zasnovani za skalabilnost. Od 100 do milijona zahtevkov - arhitektura se prilagaja vašim potrebam."
+  },
+  {
+    q: "Kaj se zgodi z mojimi podatki, če prekinemo sodelovanje?",
+    a: "Vsi vaši podatki ostanejo v vaši lasti. Zagotovimo vam celovit izvoz in prehod v druge sisteme. Ničesar ne zadržujemo."
+  },
+  {
+    q: "Ponujate 24/7 tehnično podporo?",
+    a: "Da. Za enterprise naročnike je 24/7 podpora standardna. Za manjše pakete nudimo business hours podporo s hitrim odzivom."
+  }
+];
+---
+
+<section class="py-20 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl sm:text-5xl font-bold mb-4">
+        <span class="bg-gradient-to-r from-neon-pink to-neon-cyan bg-clip-text text-transparent">
+          Pogosta Vprašanja
+        </span>
+      </h2>
+      <p class="text-xl text-gray-400">
+        Odgovori na najpogostejša vprašanja naših strank.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <details
+          key={index}
+          class="group rounded-lg bg-[#1a1f3a] border border-[#2d3561] hover:border-neon-cyan/30 transition-all duration-300 overflow-hidden"
+        >
+          <summary class="p-6 cursor-pointer flex justify-between items-center hover:bg-dark-border/20 transition-colors">
+            <span class="text-lg font-semibold text-white group-open:text-neon-cyan transition-colors">
+              {faq.q}
+            </span>
+            <span class="text-neon-cyan group-open:rotate-180 transition-transform duration-300">
+              ▼
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-400 border-t border-[#2d3561] pt-4 group-open:bg-dark-border/10">
+            {faq.a}
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <div class="mt-12 p-8 rounded-xl bg-gradient-to-r from-neon-cyan/5 to-neon-purple/5 border border-[#2d3561] text-center">
+      <h3 class="text-xl font-bold mb-2">Imate dodatno vprašanje?</h3>
+      <p class="text-gray-400 mb-4">Naš team je tu za vas.</p>
+      <button class="px-6 py-2 bg-neon-cyan text-dark-bg rounded-lg font-bold hover:shadow-lg hover:shadow-neon-cyan/50 transition-all">
+        Kontaktirajte nas
+      </button>
+    </div>
+  </div>
+</section>

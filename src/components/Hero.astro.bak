@@ -1,0 +1,72 @@
+---
+---
+
+<section class="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20">
+  <!-- Animated background elements -->
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-br from-neon-cyan to-neon-blue rounded-full blur-3xl opacity-30 animate-float"></div>
+  </div>
+
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="mb-8 inline-block px-4 py-2 bg-[#1a1f3a] border border-neon-cyan/30 rounded-full backdrop-blur-sm">
+      <span class="text-neon-cyan text-sm font-semibold">🚀 Prihodnost marketinga je tu</span>
+    </div>
+
+    <h1 class="text-5xl sm:text-7xl font-bold mb-6 leading-tight">
+      <span class="bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-pink bg-clip-text text-transparent animate-glow">
+        AI Agenti
+      </span>
+      <br />
+      <span class="text-white">kot vaš marketing partner</span>
+    </h1>
+
+    <p class="text-xl sm:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+      Povezovalna moč med ljudmi in umetno inteligenco. Skupaj rastemo hitrejše, pametnejše in bolj učinkovito.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+      <button class="px-8 py-4 bg-gradient-to-r from-neon-cyan to-neon-blue rounded-lg font-bold text-dark-bg hover:shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 transform hover:scale-105">
+        Spoznaj storitve
+      </button>
+      <button class="px-8 py-4 bg-[#1a1f3a] border-2 border-neon-purple text-neon-purple rounded-lg font-bold hover:bg-neon-purple/10 transition-all duration-300">
+        Brezplačna konzultacija
+      </button>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-20">
+      <div class="p-6 rounded-xl bg-[#1a1f3a]/50 border border-[#2d3561] hover:border-neon-cyan/50 transition-colors">
+        <div class="text-3xl font-bold text-neon-cyan mb-2">30+</div>
+        <div class="text-gray-400">Strokovnjakov v ekipi</div>
+      </div>
+      <div class="p-6 rounded-xl bg-[#1a1f3a]/50 border border-[#2d3561] hover:border-neon-purple/50 transition-colors">
+        <div class="text-3xl font-bold text-neon-purple mb-2">771%</div>
+        <div class="text-gray-400">ROI za integracije</div>
+      </div>
+      <div class="p-6 rounded-xl bg-[#1a1f3a]/50 border border-[#2d3561] hover:border-neon-pink/50 transition-colors">
+        <div class="text-3xl font-bold text-neon-pink mb-2">6 let</div>
+        <div class="text-gray-400">Izkušenj v branži</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes glow {
+    0%, 100% { text-shadow: 0 0 20px rgba(0, 240, 255, 0.5), 0 0 40px rgba(0, 240, 255, 0.3); }
+    50% { text-shadow: 0 0 40px rgba(0, 240, 255, 0.8), 0 0 60px rgba(0, 240, 255, 0.5); }
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+</style>

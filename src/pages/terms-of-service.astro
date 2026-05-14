@@ -1,0 +1,237 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Pogoji uporabe – Marketing z AI">
+  <Header />
+  <main class="py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+
+      <div class="mb-12">
+        <div class="inline-block px-3 py-1 bg-dark-card border border-neon-purple/30 rounded-full mb-4">
+          <span class="text-neon-purple text-xs font-mono tracking-widest">PRAVNI DOKUMENT · SLOVENSKO PRAVO</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-bold mb-3">
+          <span class="bg-gradient-to-r from-neon-purple to-neon-pink bg-clip-text text-transparent">
+            Splošni pogoji poslovanja
+          </span>
+        </h1>
+        <p class="text-gray-500 text-sm font-mono">Zadnja posodobitev: 14. maj 2026 · Velja od: 14. maj 2026</p>
+      </div>
+
+      <div class="space-y-10 text-gray-300">
+
+        <!-- Uvod -->
+        <div class="p-6 rounded-xl border border-neon-purple/20 bg-neon-purple/5">
+          <p class="leading-relaxed text-sm">
+            Ti Splošni pogoji poslovanja (v nadaljevanju: SPP) urejajo razmerje med <strong class="text-white">Klemen Lorber, s.p.</strong> (izvajalec) in naročnikom storitev. Z naročilom ali uporabo naših storitev potrjujete, da ste te pogoje prebrali in se z njimi strinjate. SPP so sestavljeni skladno z <strong class="text-white">Obligacijskim zakonikom (OZ)</strong>, <strong class="text-white">Zakonom o elektronskem poslovanju na trgu (ZEPT)</strong> in veljavno slovensko zakonodajo.
+          </p>
+        </div>
+
+        <!-- 01 Izvajalec -->
+        <section>
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="text-neon-purple font-mono text-sm border border-neon-purple/30 px-2 py-0.5 rounded">01</span>
+            Podatki o izvajalcu
+          </h2>
+          <div class="p-5 rounded-lg bg-dark-card border border-dark-border text-sm space-y-1.5 text-gray-400">
+            <p><span class="text-white font-semibold">Klemen Lorber, s.p.</span></p>
+            <p>Ljubljana, Slovenija</p>
+            <p>E-pošta: <a href="mailto:klemenlor@gmail.com" class="text-neon-cyan hover:underline">klemenlor@gmail.com</a></p>
+            <p>Telefon: <a href="tel:+38640352112" class="text-neon-cyan hover:underline">040 352 112</a></p>
+            <p class="pt-2 text-xs text-gray-600">Storitve se opravljajo na ozemlju Republike Slovenije in mednarodno.</p>
+          </div>
+        </section>
+
+        <div class="h-px bg-dark-border/60"></div>
+
+        <!-- 02 Storitve -->
+        <section>
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="text-neon-purple font-mono text-sm border border-neon-purple/30 px-2 py-0.5 rounded">02</span>
+            Opis storitev
+          </h2>
+          <p class="text-gray-400 text-sm leading-relaxed mb-4">Klemen Lorber, s.p. ponuja naslednje storitve digitalnega marketinga in AI avtomatizacije:</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+            {["Meta (Facebook/Instagram) oglaševanje", "Google Ads (Search & Performance Max)", "CRM implementacija in integracije", "AI agentsko poročanje in analitika", "AI agenti za podporo in RPA", "Transkripcija in AI analiza klicev"].map(s => (
+              <div class="flex gap-2 p-3 rounded-lg bg-dark-card border border-dark-border">
+                <span class="text-neon-purple mt-0.5">→</span>
+                <span class="text-gray-300">{s}</span>
+              </div>
+            ))}
+          </div>
+          <p class="text-gray-500 text-xs mt-3">Natančen obseg, cena in roki so določeni v individualni pisni ponudbi ali pogodbi.</p>
+        </section>
+
+        <div class="h-px bg-dark-border/60"></div>
+
+        <!-- 03 Sklenitev pogodbe -->
+        <section>
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="text-neon-purple font-mono text-sm border border-neon-purple/30 px-2 py-0.5 rounded">03</span>
+            Sklenitev pogodbe
+          </h2>
+          <div class="space-y-3 text-sm text-gray-400">
+            <p>Pogodbeno razmerje nastane z <strong class="text-white">obojestranskim podpisom pogodbe ali ponudbe</strong> oziroma z izrecno pisno potrditvijo naročila po e-pošti.</p>
+            <p>Ponudba velja 15 dni od datuma izstavitve, razen če je drugače navedeno.</p>
+            <p>Pogodba se sklene v slovenščini. Shranjujemo jo v elektronski obliki in vam jo na zahtevo posredujemo.</p>
+          </div>
+        </section>
+
+        <div class="h-px bg-dark-border/60"></div>
+
+        <!-- 04 Cene in plačila -->
+        <section>
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="text-neon-purple font-mono text-sm border border-neon-purple/30 px-2 py-0.5 rounded">04</span>
+            Cene in plačilni pogoji
+          </h2>
+          <div class="space-y-3 text-sm">
+            <div class="p-4 rounded-lg bg-dark-card border border-dark-border">
+              <p class="text-white font-semibold mb-2">Cene</p>
+              <ul class="text-gray-400 space-y-1.5">
+                <li class="flex gap-2"><span class="text-neon-purple">·</span> Cene so izražene v EUR brez DDV (Klemen Lorber, s.p. ni zavezanec za DDV).</li>
+                <li class="flex gap-2"><span class="text-neon-purple">·</span> Oglaševalski proračun pri Meta in Google se plačuje neposredno platformi in ni vključen v naše honorarje.</li>
+              </ul>
+            </div>
+            <div class="p-4 rounded-lg bg-dark-card border border-dark-border">
+              <p class="text-white font-semibold mb-2">Plačilni roki</p>
+              <ul class="text-gray-400 space-y-1.5">
+                <li class="flex gap-2"><span class="text-neon-purple">·</span> Plačilo v roku <strong class="text-white">15 dni</strong> od datuma računa, razen če je pisno dogovorjeno drugače.</li>
+                <li class="flex gap-2"><span class="text-neon-purple">·</span> Mesečne naročnine (retainer) se zaračunajo vnaprej na začetku vsakega meseca.</li>
+                <li class="flex gap-2"><span class="text-neon-purple">·</span> Pri zamudi plačila zaračunamo zakonske zamudne obresti.</li>
+                <li class="flex gap-2"><span class="text-neon-purple">·</span> Ob zamudi več kot 30 dni si pridržujemo pravico do prekinitve storitev.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <div class="h-px bg-dark-border/60"></div>
+
+        <!-- 05 Obveznosti naročnika -->
+        <section>
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="text-neon-purple font-mono text-sm border border-neon-purple/30 px-2 py-0.5 rounded">05</span>
+            Obveznosti naročnika
+          </h2>
+          <p class="text-gray-400 text-sm mb-3">Za uspešno izvedbo storitev naročnik zagotovi:</p>
+          <ul class="space-y-2 text-sm text-gray-400">
+            {[
+              "Pravočasen dostop do potrebnih računov (Meta Ads, Google Ads, CRM, spletna stran) v roku 5 delovnih dni od sklenitve pogodbe.",
+              "Točne, ažurne in resnične informacije o podjetju, ciljih in ciljnih skupinah.",
+              "Odziv na zahteve za potrditev materialov v dogovorjenem roku (privzeto 5 delovnih dni).",
+              "Zagotovitev oglaševalskega proračuna pri platformah pred začetkom kampanj.",
+              "Spoštovanje veljavne zakonodaje (ZMed, ZVOP-2, ZEPT) pri vsebinah, ki jih posreduje izvajalcu.",
+            ].map(o => (
+              <li class="flex gap-3 p-3 rounded-lg bg-dark-card border border-dark-border">
+                <span class="text-neon-purple mt-0.5 flex-shrink-0">→</span>
+                <span>{o}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <div class="h-px bg-dark-border/60"></div>
+
+        <!-- 06 Intelektualna lastnina -->
+        <section>
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="text-neon-purple font-mono text-sm border border-neon-purple/30 px-2 py-0.5 rounded">06</span>
+            Intelektualna lastnina
+          </h2>
+          <div class="space-y-3 text-sm text-gray-400">
+            <p>Vsa vsebina spletne strani (besedila, grafike, dizajn, koda) je zaščitena z <strong class="text-white">Zakonom o avtorski in sorodnih pravicah (ZASP)</strong>. Brez pisnega dovoljenja ni dovoljena reprodukcija ali komercialna uporaba.</p>
+            <p>Dela, ustvarjena za naročnika v okviru pogodbe (oglasi, teksti, konfiguracije), postanejo <strong class="text-white">last naročnika po plačilu vseh obveznosti v celoti</strong>. Do takrat ostanejo last izvajalca.</p>
+            <p>Izvajalec si pridržuje pravico do omembe naročnika kot referenčnega primera (portfelj), razen če naročnik pisno zahteva zaupnost.</p>
+          </div>
+        </section>
+
+        <div class="h-px bg-dark-border/60"></div>
+
+        <!-- 07 Odgovornost -->
+        <section>
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="text-neon-purple font-mono text-sm border border-neon-purple/30 px-2 py-0.5 rounded">07</span>
+            Omejitev odgovornosti
+          </h2>
+          <div class="p-5 rounded-lg bg-dark-card border border-neon-pink/20 text-sm space-y-3 text-gray-400">
+            <p>Izvajalec si prizadeva za najboljše rezultate, toda <strong class="text-white">ne jamči specifičnih poslovnih rezultatov</strong> (število leadov, ROAS, prodaja), ker so odvisni od tržnih dejavnikov, algoritrnov platform in kakovosti naročnikovega produkta.</p>
+            <p>Izvajalec ni odgovoren za: izpad oglaševalskih platform (Meta, Google), spremembe algoritmov, škodo zaradi napačnih informacij naročnika, ali zamude ki so posledica naročnikove neodzivnosti.</p>
+            <p>Skupna odgovornost izvajalca je omejena na <strong class="text-white">znesek storitev, plačanih v zadnjih 3 mesecih</strong> pred nastankom škode.</p>
+          </div>
+        </section>
+
+        <div class="h-px bg-dark-border/60"></div>
+
+        <!-- 08 Odpoved -->
+        <section>
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="text-neon-purple font-mono text-sm border border-neon-purple/30 px-2 py-0.5 rounded">08</span>
+            Odpoved in prekinitev
+          </h2>
+          <div class="space-y-3 text-sm text-gray-400">
+            <div class="p-4 rounded-lg bg-dark-card border border-dark-border">
+              <p class="text-white font-semibold mb-1">Redna odpoved</p>
+              <p>Mesečne naročnine je mogoče odpovedati z <strong class="text-white">30-dnevnim pisnim odpovednim rokom</strong> pred koncem meseca. Dela, opravljena do datuma odpovedi, se zaračunajo v celoti.</p>
+            </div>
+            <div class="p-4 rounded-lg bg-dark-card border border-dark-border">
+              <p class="text-white font-semibold mb-1">Takojšnja prekinitev</p>
+              <p>Izvajalec lahko pogodbo takoj prekine ob hudi kršitvi naročnika (neplačilo, posredovanje nezakonitih vsebin, zloraba). Naročnik prav tako pri dokazani bistveni kršitvi s strani izvajalca.</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="h-px bg-dark-border/60"></div>
+
+        <!-- 09 Zaupnost -->
+        <section>
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="text-neon-purple font-mono text-sm border border-neon-purple/30 px-2 py-0.5 rounded">09</span>
+            Zaupnost (NDA)
+          </h2>
+          <p class="text-gray-400 text-sm leading-relaxed">Obe strani se zavežeta, da bosta vse zaupne informacije, pridobljene v okviru sodelovanja (poslovni podatki, strategije, rezultati kampanj), varovali kot poslovno skrivnost in jih ne bosta razkrili tretjim osebam brez pisnega soglasja druge strani. Ta obveznost velja <strong class="text-white">2 leti po prenehanju pogodbe</strong>.</p>
+        </section>
+
+        <div class="h-px bg-dark-border/60"></div>
+
+        <!-- 10 Pravo in reševanje sporov -->
+        <section>
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="text-neon-purple font-mono text-sm border border-neon-purple/30 px-2 py-0.5 rounded">10</span>
+            Veljavno pravo in reševanje sporov
+          </h2>
+          <div class="space-y-3 text-sm text-gray-400">
+            <p>Ti SPP se urejajo in razlagajo v skladu s <strong class="text-white">pravom Republike Slovenije</strong>.</p>
+            <p>Morebitne spore bosta stranki reševali sporazumno. Če sporazum ni možen v 30 dneh, je za reševanje pristojno <strong class="text-white">sodišče v Ljubljani</strong>.</p>
+            <p>Za potrošniške spore je na voljo spletna platforma za reševanje sporov EU: <a href="https://ec.europa.eu/consumers/odr" target="_blank" class="text-neon-cyan hover:underline">ec.europa.eu/consumers/odr</a>.</p>
+          </div>
+        </section>
+
+        <div class="h-px bg-dark-border/60"></div>
+
+        <!-- 11 Spremembe SPP -->
+        <section>
+          <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="text-neon-purple font-mono text-sm border border-neon-purple/30 px-2 py-0.5 rounded">11</span>
+            Spremembe splošnih pogojev
+          </h2>
+          <p class="text-gray-400 text-sm leading-relaxed">Pridržujemo si pravico do spremembe teh SPP. Obstoječe pogodbe ureja različica SPP, ki je veljala ob sklenitvi. O spremembah obvestimo naročnike z aktivnimi pogodbami vsaj <strong class="text-white">30 dni vnaprej</strong> po e-pošti.</p>
+        </section>
+
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-dark-border flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <a href="/" class="inline-flex items-center gap-2 text-neon-purple hover:text-white transition-colors font-mono text-sm">
+          ← Nazaj na domačo stran
+        </a>
+        <a href="/privacy-policy" class="inline-flex items-center gap-2 text-gray-500 hover:text-neon-cyan transition-colors font-mono text-sm">
+          Politika zasebnosti →
+        </a>
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>

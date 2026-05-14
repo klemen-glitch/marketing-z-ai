@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Agents from '../components/Agents.astro';
+import FAQ from '../components/FAQ.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Domov">
+  <Header />
+  <main>
+    <section id="hero"><Hero /></section>
+    <section id="storitve"><Services /></section>
+    <section id="agenti"><Agents /></section>
+    <section id="faq"><FAQ /></section>
+    <section id="kontakt"><Contact /></section>
+  </main>
+  <Footer />
+</Layout>
