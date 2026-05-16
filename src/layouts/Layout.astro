@@ -3,30 +3,154 @@ import '../styles/global.css';
 import CookieBanner from '../components/CookieBanner.astro';
 
 interface Props {
-  title: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+  type?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title = 'Marketing z AI',
+  description = 'Klemen Lorber — performance marketing in AI agenti za slovensko podjetja. Meta oglaševanje, Google Ads, CRM integracije, AI avtomatizacija. 11 let izkušenj.',
+  image = '/og-image.svg',
+  canonical = Astro.url.href,
+  type = 'website',
+} = Astro.props;
+
+const siteUrl = 'https://www.marketingzai.eu';
+const fullTitle = title === 'Marketing z AI' ? title : `${title} | Marketing z AI`;
+const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
 ---
 
 <!DOCTYPE html>
 <html lang="sl">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Astra AI - Performance marketing in AI avtonomije strokovnjak" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary meta -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Klemen Lorber" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | Marketing z AI</title>
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonical} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:alt" content="Marketing z AI – Klemen Lorber" />
+    <meta property="og:locale" content="sl_SI" />
+    <meta property="og:site_name" content="Marketing z AI" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullImage} />
+
+    <!-- Keywords -->
+    <meta name="keywords" content="performance marketing, AI agenti, Meta oglaševanje, Google Ads, CRM integracije, AI avtomatizacija, lead generation, Klemen Lorber, Slovenija, digitalni marketing" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://www.marketingzai.eu/#klemen",
+            "name": "Klemen Lorber",
+            "jobTitle": "Performance Marketing & AI Specialist",
+            "description": "Vodilni slovenski performance marketing in AI avtonomije strokovnjak z 11+ leti izkušenj.",
+            "url": "https://www.marketingzai.eu",
+            "email": "klemenlor@gmail.com",
+            "telephone": "+38640352112",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Ljubljana",
+              "addressCountry": "SI"
+            },
+            "knowsAbout": ["Meta Advertising", "Google Ads", "CRM Integration", "AI Automation", "Performance Marketing"]
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://www.marketingzai.eu/#business",
+            "name": "Marketing z AI",
+            "alternateName": "Klemen Lorber s.p.",
+            "description": "Performance marketing in AI rešitve za slovensko podjetja. Meta oglaševanje, Google Ads, CRM integracije, AI agenti.",
+            "url": "https://www.marketingzai.eu",
+            "telephone": "+38640352112",
+            "email": "klemenlor@gmail.com",
+            "founder": { "@id": "https://www.marketingzai.eu/#klemen" },
+            "foundingDate": "2017",
+            "areaServed": ["SI", "EU"],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Ljubljana",
+              "addressCountry": "SI"
+            },
+            "priceRange": "€€",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Storitve digitalnega marketinga",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Meta Lead Generation", "description": "Facebook in Instagram oglaševanje za pridobivanje leadov" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Ads", "description": "Search in Performance Max kampanje" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CRM Integracije", "description": "Implementacija in integracija CRM sistemov" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Agenti", "description": "Avtonomni AI agenti za marketing in podporo" } }
+              ]
+            },
+            "sameAs": [
+              "https://www.linkedin.com/in/klemen-lorber"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.marketingzai.eu/#website",
+            "url": "https://www.marketingzai.eu",
+            "name": "Marketing z AI",
+            "description": "Performance marketing in AI rešitve",
+            "publisher": { "@id": "https://www.marketingzai.eu/#business" },
+            "inLanguage": "sl-SI",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://www.marketingzai.eu/?s={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Preconnect za hitrost -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
+
   <body class="bg-[#0a0e27] text-white overflow-x-hidden">
     <!-- Grid background -->
-    <div class="fixed inset-0 -z-10 opacity-20">
+    <div class="fixed inset-0 -z-10 opacity-20" aria-hidden="true">
       <div class="absolute inset-0 bg-grid-pattern"></div>
     </div>
 
     <!-- Gradient orbs -->
-    <div class="fixed inset-0 -z-10 overflow-hidden">
+    <div class="fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
       <div class="absolute top-0 left-1/4 w-96 h-96 bg-neon-cyan/20 rounded-full blur-3xl opacity-20 animate-pulse"></div>
       <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-neon-purple/20 rounded-full blur-3xl opacity-20 animate-pulse" style="animation-delay: 1s;"></div>
     </div>
@@ -37,15 +161,10 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
-  @keyframes grid {
-    0% { background-position: 0 0; }
-    100% { background-position: 40px 40px; }
-  }
-
   .bg-grid-pattern {
     background-image:
-      linear-gradient(rgba(0, 240, 255, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+      linear-gradient(rgba(0, 240, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 240, 255, 0.08) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 
@@ -53,21 +172,37 @@ const { title } = Astro.props;
     scrollbar-width: thin;
     scrollbar-color: #b400ff #0a0e27;
   }
+  *::-webkit-scrollbar { width: 6px; }
+  *::-webkit-scrollbar-track { background: #0a0e27; }
+  *::-webkit-scrollbar-thumb { background: #b400ff; border-radius: 3px; }
+  *::-webkit-scrollbar-thumb:hover { background: #00f0ff; }
 
-  *::-webkit-scrollbar {
-    width: 8px;
+  html { scroll-behavior: smooth; }
+
+  /* Scroll reveal animacije */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
-
-  *::-webkit-scrollbar-track {
-    background: #0a0e27;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background: #b400ff;
-    border-radius: 4px;
-  }
-
-  *::-webkit-scrollbar-thumb:hover {
-    background: #00f0ff;
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 </style>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section').forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+</script>

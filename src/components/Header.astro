@@ -1,31 +1,82 @@
 ---
 ---
 
-<header class="sticky top-0 z-50 border-b border-dark-border/50 backdrop-blur-md" style="background-color: rgba(10, 14, 39, 0.85);">
+<header class="sticky top-0 z-50 border-b border-dark-border/50 backdrop-blur-md" style="background-color: rgba(10, 14, 39, 0.90);">
   <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
 
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 group">
+    <a href="/" class="flex items-center gap-2 group flex-shrink-0">
       <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-neon-cyan to-neon-purple flex items-center justify-center text-dark-bg font-black text-sm">M</div>
       <span class="text-xl font-bold text-white group-hover:text-neon-cyan transition-colors">
         Marketing <span class="text-neon-cyan">z AI</span>
       </span>
     </a>
 
-    <!-- Nav links -->
+    <!-- Desktop nav -->
     <div class="hidden md:flex items-center gap-8">
-      <a href="#storitve" class="text-gray-400 hover:text-neon-cyan transition-colors text-sm font-medium">Storitve</a>
-      <a href="#agenti" class="text-gray-400 hover:text-neon-cyan transition-colors text-sm font-medium">Agenti</a>
-      <a href="#faq" class="text-gray-400 hover:text-neon-cyan transition-colors text-sm font-medium">FAQ</a>
-      <a href="#kontakt" class="text-gray-400 hover:text-neon-cyan transition-colors text-sm font-medium">Kontakt</a>
+      <a href="/#storitve" class="text-gray-400 hover:text-neon-cyan transition-colors text-sm font-medium">Storitve</a>
+      <a href="/#agenti" class="text-gray-400 hover:text-neon-cyan transition-colors text-sm font-medium">Agenti</a>
+      <a href="/#faq" class="text-gray-400 hover:text-neon-cyan transition-colors text-sm font-medium">FAQ</a>
+      <a href="/#kontakt" class="text-gray-400 hover:text-neon-cyan transition-colors text-sm font-medium">Kontakt</a>
     </div>
 
-    <!-- CTA button -->
-    <a href="#kontakt" class="px-5 py-2 bg-gradient-to-r from-neon-cyan to-neon-blue rounded-lg font-bold text-dark-bg text-sm hover:shadow-lg hover:shadow-neon-cyan/30 transition-all hidden md:block">
+    <!-- Desktop CTA -->
+    <a href="/#kontakt" class="hidden md:block px-5 py-2 bg-gradient-to-r from-neon-cyan to-neon-blue rounded-lg font-bold text-dark-bg text-sm hover:shadow-lg hover:shadow-neon-cyan/30 transition-all">
       Začni sedaj
     </a>
 
-    <!-- Mobile menu button -->
-    <button class="md:hidden text-neon-cyan text-xl font-bold">☰</button>
+    <!-- Mobile hamburger -->
+    <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 p-2 group" aria-label="Odpri meni" aria-expanded="false">
+      <span class="hamburger-line block w-6 h-0.5 bg-neon-cyan transition-all duration-300"></span>
+      <span class="hamburger-line block w-6 h-0.5 bg-neon-cyan transition-all duration-300"></span>
+      <span class="hamburger-line block w-6 h-0.5 bg-neon-cyan transition-all duration-300"></span>
+    </button>
   </nav>
+
+  <!-- Mobile menu panel -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-dark-border/50" style="background-color: rgba(10, 14, 39, 0.98);">
+    <div class="px-4 py-6 flex flex-col gap-4">
+      <a href="/#storitve" class="mobile-nav-link text-gray-300 hover:text-neon-cyan transition-colors text-lg font-medium py-2 border-b border-dark-border/30">Storitve</a>
+      <a href="/#agenti" class="mobile-nav-link text-gray-300 hover:text-neon-cyan transition-colors text-lg font-medium py-2 border-b border-dark-border/30">Agenti</a>
+      <a href="/#faq" class="mobile-nav-link text-gray-300 hover:text-neon-cyan transition-colors text-lg font-medium py-2 border-b border-dark-border/30">FAQ</a>
+      <a href="/#kontakt" class="mobile-nav-link text-gray-300 hover:text-neon-cyan transition-colors text-lg font-medium py-2 border-b border-dark-border/30">Kontakt</a>
+      <a href="/#kontakt" class="mt-2 px-6 py-3 bg-gradient-to-r from-neon-cyan to-neon-blue rounded-lg font-bold text-dark-bg text-center text-sm">
+        Začni sedaj →
+      </a>
+    </div>
+  </div>
 </header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const lines = document.querySelectorAll('.hamburger-line');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    if (isOpen) {
+      menu?.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+      lines[0]?.classList.remove('rotate-45', 'translate-y-2');
+      lines[1]?.classList.remove('opacity-0');
+      lines[2]?.classList.remove('-rotate-45', '-translate-y-2');
+    } else {
+      menu?.classList.remove('hidden');
+      btn.setAttribute('aria-expanded', 'true');
+      lines[0]?.classList.add('rotate-45', 'translate-y-2');
+      lines[1]?.classList.add('opacity-0');
+      lines[2]?.classList.add('-rotate-45', '-translate-y-2');
+    }
+  });
+
+  // Zapri ob kliku na link
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+      lines[0]?.classList.remove('rotate-45', 'translate-y-2');
+      lines[1]?.classList.remove('opacity-0');
+      lines[2]?.classList.remove('-rotate-45', '-translate-y-2');
+    });
+  });
+</script>
