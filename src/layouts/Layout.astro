@@ -8,14 +8,16 @@ interface Props {
   image?: string;
   canonical?: string;
   type?: string;
+  noindex?: boolean;
 }
 
 const {
   title = 'Marketing z AI',
-  description = 'Klemen Lorber — performance marketing in AI agenti za slovensko podjetja. Meta oglaševanje, Google Ads, CRM integracije, AI avtomatizacija. 11 let izkušenj.',
+  description = 'Klemen Lorber — performance marketing in AI agenti za slovenska podjetja. Meta oglaševanje, Google Ads, CRM integracije, AI avtomatizacija. 11 let izkušenj.',
   image = '/og-image.svg',
   canonical = Astro.url.href,
   type = 'website',
+  noindex = false,
 } = Astro.props;
 
 const siteUrl = 'https://www.marketingzai.eu';
@@ -34,11 +36,14 @@ const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Klemen Lorber" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
+    <meta name="theme-color" content="#00f0ff" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Canonical -->
+    <!-- Canonical & hreflang -->
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="sl" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -133,14 +138,31 @@ const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
               "target": "https://www.marketingzai.eu/?s={search_term_string}",
               "query-input": "required name=search_term_string"
             }
-          }
+          },
         ]
       }
     </script>
 
+    <!-- Dynamic WebPage schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      "url": canonical,
+      "name": fullTitle,
+      "description": description,
+      "isPartOf": { "@id": "https://www.marketingzai.eu/#website" },
+      "about": { "@id": "https://www.marketingzai.eu/#business" },
+      "inLanguage": "sl-SI"
+    })}></script>
+
     <!-- Preconnect za hitrost -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+
+    <!-- Performance: preload OG image for LCP hint -->
+    <link rel="preload" as="image" href={fullImage} fetchpriority="low" />
   </head>
 
   <body class="bg-[#0a0e27] text-white overflow-x-hidden">
