@@ -72,8 +72,8 @@
   [headers.values]
     Cache-Control = "public, max-age=3600"
 
-# SPA fallback (needed for Astro static)
+# Custom 404 for unknown routes
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404

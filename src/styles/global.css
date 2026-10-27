@@ -18,12 +18,16 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Sticky header height offset za anchor links */
+    scroll-padding-top: 72px;
   }
 
   body {
     overflow-x: hidden;
     background-color: #0a0e27;
     color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
