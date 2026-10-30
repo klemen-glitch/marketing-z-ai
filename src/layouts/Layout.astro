@@ -1,5 +1,16 @@
 ---
+import '@fontsource/instrument-sans/400.css';
+import '@fontsource/instrument-sans/500.css';
+import '@fontsource/instrument-sans/600.css';
+import '@fontsource/instrument-serif/400.css';
+import '@fontsource/instrument-serif/400-italic.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
 import '../styles/global.css';
+import serifLatin from '@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff2?url';
+import serifExt from '@fontsource/instrument-serif/files/instrument-serif-latin-ext-400-normal.woff2?url';
+import serifItalic from '@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2?url';
+import sansLatin from '@fontsource/instrument-sans/files/instrument-sans-latin-400-normal.woff2?url';
 import CookieBanner from '../components/CookieBanner.astro';
 
 interface Props {
@@ -32,25 +43,26 @@ const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- Primary meta -->
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Klemen Lorber" />
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
-    <meta name="theme-color" content="#00f0ff" />
+    <meta name="theme-color" content="#0e0d0b" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Canonical & hreflang -->
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="sl" href={canonical} />
     <link rel="alternate" hreflang="x-default" href={canonical} />
 
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
 
-    <!-- Open Graph / Facebook -->
+    <link rel="preload" href={serifLatin} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={serifExt} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={serifItalic} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={sansLatin} as="font" type="font/woff2" crossorigin />
+
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={fullTitle} />
@@ -63,16 +75,13 @@ const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
     <meta property="og:locale" content="sl_SI" />
     <meta property="og:site_name" content="Marketing z AI" />
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={fullImage} />
 
-    <!-- Keywords -->
     <meta name="keywords" content="performance marketing, AI agenti, Meta oglaševanje, Google Ads, CRM integracije, AI avtomatizacija, lead generation, Klemen Lorber, Slovenija, digitalni marketing" />
 
-    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -138,12 +147,11 @@ const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
               "target": "https://www.marketingzai.eu/?s={search_term_string}",
               "query-input": "required name=search_term_string"
             }
-          },
+          }
         ]
       }
     </script>
 
-    <!-- Dynamic WebPage schema -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebPage",
@@ -156,75 +164,29 @@ const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
       "inLanguage": "sl-SI"
     })}></script>
 
-    <!-- Preconnect za hitrost -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-
-    <!-- Performance: preload OG image for LCP hint -->
-    <link rel="preload" as="image" href={fullImage} fetchpriority="low" />
+    <script is:inline>
+      (function () {
+        try {
+          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.classList.add('is-motion');
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
 
-  <body class="bg-[#0a0e27] text-white overflow-x-hidden">
-    <!-- Grid background -->
-    <div class="fixed inset-0 -z-10 opacity-20" aria-hidden="true">
-      <div class="absolute inset-0 bg-grid-pattern"></div>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="progress" aria-hidden="true"><span></span></div>
+    <a class="skip" href="#main">Preskoči na vsebino</a>
+    <div class="page">
+      <slot />
     </div>
-
-    <!-- Gradient orbs -->
-    <div class="fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
-      <div class="absolute top-0 left-1/4 w-96 h-96 bg-neon-cyan/20 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-      <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-neon-purple/20 rounded-full blur-3xl opacity-20 animate-pulse" style="animation-delay: 1s;"></div>
-    </div>
-
-    <slot />
     <CookieBanner />
+    <script>
+      import { initMotion } from '../scripts/motion';
+      initMotion();
+    </script>
   </body>
 </html>
-
-<style is:global>
-  .bg-grid-pattern {
-    background-image:
-      linear-gradient(rgba(0, 240, 255, 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 240, 255, 0.08) 1px, transparent 1px);
-    background-size: 40px 40px;
-  }
-
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: #b400ff #0a0e27;
-  }
-  *::-webkit-scrollbar { width: 6px; }
-  *::-webkit-scrollbar-track { background: #0a0e27; }
-  *::-webkit-scrollbar-thumb { background: #b400ff; border-radius: 3px; }
-  *::-webkit-scrollbar-thumb:hover { background: #00f0ff; }
-
-  html { scroll-behavior: smooth; }
-
-  /* Scroll reveal animacije */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
-
-<script>
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('section').forEach(el => {
-    el.classList.add('reveal');
-    observer.observe(el);
-  });
-</script>

@@ -2,8 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import Reel from '../components/Reel.astro';
 import Services from '../components/Services.astro';
 import Agents from '../components/Agents.astro';
+import LearningHub from '../components/LearningHub.astro';
 import FAQ from '../components/FAQ.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
@@ -14,12 +16,14 @@ import Footer from '../components/Footer.astro';
   description="Klemen Lorber — performance marketing in AI agenti za slovenska podjetja. Meta oglaševanje, Google Ads, CRM integracije, AI avtomatizacija. 11 let izkušenj."
 >
   <Header />
-  <main>
-    <section id="hero" aria-label="Uvod"><Hero /></section>
-    <section id="storitve" aria-label="Storitve"><Services /></section>
-    <section id="agenti" aria-label="AI Agenti"><Agents /></section>
-    <section id="faq" aria-label="Pogosta vprašanja"><FAQ /></section>
-    <section id="kontakt" aria-label="Kontakt"><Contact /></section>
+  <main id="main" tabindex="-1">
+    <Hero />
+    <Reel />
+    <Services />
+    <Agents />
+    <LearningHub />
+    <FAQ />
+    <Contact />
   </main>
   <Footer />
 </Layout>

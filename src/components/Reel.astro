@@ -1,0 +1,22 @@
+---
+const items = [
+  'Meta Lead Generation',
+  'Google Ads',
+  'CRM Implementacija',
+  'AI Poročilni Agent',
+  'AI Support Agent',
+  'Transkripcija Klicev',
+];
+const loop = [...items, ...items];
+---
+
+<div class="reel" aria-hidden="true">
+  <div class="reel-track">
+    {loop.map((item, index) => (
+      <span class="reel-item" data-clone={index >= items.length ? '' : undefined}>
+        <span>{item}</span>
+        <span class="reel-dot"></span>
+      </span>
+    ))}
+  </div>
+</div>
