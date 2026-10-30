@@ -351,97 +351,46 @@ const agents = [
 ];
 ---
 
-<section class="py-20 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-      <div class="inline-block px-4 py-2 bg-dark-card border border-neon-cyan/30 rounded-full mb-6">
-        <span class="text-neon-cyan text-sm font-semibold tracking-widest uppercase">⚡ Naša ekipa AI agentov</span>
-      </div>
-      <h2 class="text-4xl sm:text-5xl font-bold mb-4">
-        <span class="bg-gradient-to-r from-neon-cyan to-neon-blue bg-clip-text text-transparent">
-          6 Specializiranih Agentov
-        </span>
+<section id="agenti" class="agents theme-dark" aria-label="AI Agenti" data-agents>
+  <div class="agents-pin">
+    <div class="agents-intro">
+      <p class="chapter">03 — Agenti</p>
+      <p class="eyebrow-inline">⚡ Naša ekipa AI agentov</p>
+      <h2 class="display" data-rise-group>
+        <span class="line"><span class="mask"><span class="rise">6 Specializiranih</span></span></span>
+        <span class="line"><span class="mask"><span class="rise">Agentov</span></span></span>
       </h2>
-      <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-        Vsak agent je izurjen za svojo nalogo. Delujejo skupaj kot celovit sistem —
-        avtonomno, neprekinjeno, z enim ciljem: vaša rast.
+      <p class="lede-sm" data-split>
+        Vsak agent je izurjen za svojo nalogo. Delujejo skupaj kot celovit sistem — avtonomno, neprekinjeno, z enim ciljem: vaša rast.
       </p>
+      <p class="agents-hint">Povlecite →</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {agents.map((agent) => (
-        <div
-          class="group relative rounded-2xl border transition-all duration-400 hover:scale-[1.03] overflow-hidden cursor-pointer"
-          style={`background: #0d1226; border-color: ${agent.borderColor}25;`}
-          onmouseenter={`this.style.borderColor='${agent.borderColor}70'; this.style.boxShadow='0 0 35px ${agent.glowColor}';`}
-          onmouseleave={`this.style.borderColor='${agent.borderColor}25'; this.style.boxShadow='none';`}
-        >
-          <!-- Scan line animacija ob hover -->
-          <div class="absolute inset-x-0 top-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-               style={`background: linear-gradient(to right, transparent, ${agent.borderColor}, transparent);`}></div>
-          <div class="absolute inset-x-0 bottom-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-               style={`background: linear-gradient(to right, transparent, ${agent.borderColor}, transparent);`}></div>
-
-          <!-- Glow ozadje -->
-          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-               style={`background: radial-gradient(ellipse at 50% 0%, ${agent.glowColor} 0%, transparent 60%);`}></div>
-
-          <div class="relative z-10 p-6 flex flex-col items-center text-center">
-            <!-- Header -->
-            <div class="w-full flex justify-between items-center mb-5">
-              <span class="text-xs font-mono px-2 py-1 rounded border"
-                    style={`color: ${agent.borderColor}; border-color: ${agent.borderColor}30; background: ${agent.borderColor}08;`}>
-                {agent.id}
-              </span>
-              <div class="flex items-center gap-1.5">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-lime opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-neon-lime"></span>
-                </span>
-                <span class="text-neon-lime text-xs font-mono">ACTIVE</span>
-              </div>
+    <div class="agents-viewport" tabindex="0" aria-label="Seznam AI agentov">
+      <div class="agents-track">
+        {agents.map((agent) => (
+          <article class="agent-card" style={`--agent:${agent.borderColor}`}>
+            <div class="agent-top">
+              <span class="agent-id">{agent.id}</span>
+              <span class="agent-live"><span class="live-dot" aria-hidden="true"></span>ACTIVE</span>
             </div>
-
-            <!-- SVG Avatar -->
-            <div class="w-28 h-32 transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1"
-                 style={`filter: drop-shadow(0 0 12px ${agent.borderColor}60);`}
-                 set:html={agent.svg}/>
-
-            <!-- Ime = vloga -->
-            <h3 class="text-lg font-bold mt-4 mb-0.5 tracking-wide" style={`color: ${agent.borderColor};`}>
-              {agent.name}
-            </h3>
-            <p class="text-gray-600 text-xs font-mono mb-4 tracking-widest uppercase">{agent.role}</p>
-
-            <!-- Separator -->
-            <div class="w-full h-px mb-4"
-                 style={`background: linear-gradient(to right, transparent, ${agent.borderColor}35, transparent);`}></div>
-
-            <!-- Opis -->
-            <p class="text-gray-400 text-sm leading-relaxed mb-5">{agent.description}</p>
-
-            <!-- Stats -->
-            <div class="flex gap-2 justify-center flex-wrap">
-              {agent.stats.map(stat => (
-                <span class="text-xs font-mono px-2.5 py-1 rounded font-semibold"
-                      style={`color: ${agent.borderColor}; background: ${agent.borderColor}10; border: 1px solid ${agent.borderColor}25;`}>
-                  {stat}
-                </span>
+            <div class="agent-figure" aria-hidden="true" set:html={agent.svg} />
+            <h3>{agent.name}</h3>
+            <p class="agent-role">{agent.role}</p>
+            <hr class="rule" />
+            <p>{agent.description}</p>
+            <ul class="agent-stats">
+              {agent.stats.map((stat) => (
+                <li>{stat}</li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </article>
+        ))}
+        <div class="agent-card agent-end">
+          <p class="micro">// Pripravljeni za aktivacijo</p>
+          <a href="#kontakt" class="btn btn-signal">Aktiviraj agente →</a>
         </div>
-      ))}
-    </div>
-
-    <!-- CTA -->
-    <div class="mt-16 text-center">
-      <p class="text-gray-500 mb-6 font-mono text-sm tracking-wide uppercase">// Pripravljeni za aktivacijo</p>
-      <a href="#kontakt"
-         class="inline-block px-8 py-4 rounded-lg font-bold text-dark-bg transition-all duration-300 hover:scale-105"
-         style="background: linear-gradient(135deg, #00f0ff, #0080ff); box-shadow: 0 0 25px rgba(0,240,255,0.3);">
-        Aktiviraj agente →
-      </a>
+      </div>
     </div>
   </div>
 </section>

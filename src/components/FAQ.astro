@@ -27,46 +27,30 @@ const faqs = [
 ];
 ---
 
-<section class="py-20 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-3xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl sm:text-5xl font-bold mb-4">
-        <span class="bg-gradient-to-r from-neon-pink to-neon-cyan bg-clip-text text-transparent">
-          Pogosta Vprašanja
-        </span>
-      </h2>
-      <p class="text-xl text-gray-400">
-        Odgovori na najpogostejša vprašanja naših strank.
-      </p>
+<section id="faq" class="faq theme-dark" aria-label="Pogosta vprašanja">
+  <div class="wrap">
+    <div class="faq-head">
+      <p class="chapter">05 — Vprašanja</p>
+      <h2 class="display display-l" data-split>Pogosta Vprašanja</h2>
+      <p class="lede-sm" data-split>Odgovori na najpogostejša vprašanja naših strank.</p>
     </div>
 
-    <div class="space-y-4">
-      {faqs.map((faq, index) => (
-        <details
-          key={index}
-          class="group rounded-lg bg-[#1a1f3a] border border-[#2d3561] hover:border-neon-cyan/30 transition-all duration-300 overflow-hidden"
-        >
-          <summary class="p-6 cursor-pointer flex justify-between items-center hover:bg-[rgba(45,53,97,0.2)] transition-colors">
-            <span class="text-lg font-semibold text-white group-open:text-neon-cyan transition-colors">
-              {faq.q}
-            </span>
-            <span class="text-neon-cyan group-open:rotate-180 transition-transform duration-300">
-              ▼
-            </span>
+    <div data-reveal>
+      {faqs.map((faq) => (
+        <details class="faq-item">
+          <summary>
+            <span>{faq.q}</span>
+            <span class="faq-chevron" aria-hidden="true"></span>
           </summary>
-          <div class="px-6 pb-6 text-gray-400 border-t border-[#2d3561] pt-4 group-open:bg-[rgba(45,53,97,0.1)]">
-            {faq.a}
-          </div>
+          <p class="answer">{faq.a}</p>
         </details>
       ))}
     </div>
 
-    <div class="mt-12 p-8 rounded-xl bg-gradient-to-r from-neon-cyan/5 to-neon-purple/5 border border-[#2d3561] text-center">
-      <h3 class="text-xl font-bold mb-2">Imate dodatno vprašanje?</h3>
-      <p class="text-gray-400 mb-4">Naš team je tu za vas.</p>
-      <a href="#kontakt" class="inline-block px-6 py-2 bg-neon-cyan text-[#0a0e27] rounded-lg font-bold hover:shadow-lg hover:shadow-neon-cyan/50 transition-all">
-        Kontaktirajte nas
-      </a>
+    <div class="faq-help">
+      <h3>Imate dodatno vprašanje?</h3>
+      <p>Naš team je tu za vas.</p>
+      <a href="#kontakt" class="btn btn-signal">Kontaktirajte nas</a>
     </div>
   </div>
 </section>

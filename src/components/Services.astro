@@ -6,7 +6,6 @@ const services = [
     description: "Vodilna storitev za zbiranje potencialnih strank prek Facebook in Instagram s pametno segmentacijo in AI-lead scoring.",
     icon: "📱",
     benefits: ["Nižji CPA", "Višje konverzije", "24/7 avtomatizacija"],
-    gradient: "from-neon-cyan to-neon-blue"
   },
   {
     id: 2,
@@ -14,7 +13,6 @@ const services = [
     description: "Search in Performance Max kampanje z AI-podprto optimizacijo oglasov in inteligentnim bid managementom.",
     icon: "🔍",
     benefits: ["Nakupni namen", "Visoke konverzije", "Hitro skaliranje"],
-    gradient: "from-neon-blue to-neon-purple"
   },
   {
     id: 3,
@@ -22,7 +20,6 @@ const services = [
     description: "Celovita integracijska arhitektura, ki povezuje vse kanale v en sistem s predvidljivim atribucijskim modelom.",
     icon: "🔗",
     benefits: ["5-plastna arhitektura", "Avtomatizacija", "Full tracking"],
-    gradient: "from-neon-purple to-neon-pink"
   },
   {
     id: 4,
@@ -30,7 +27,6 @@ const services = [
     description: "Avtomatizirano poročanje s narativnim vpogledanjem in anomaly detection v realnem času.",
     icon: "📊",
     benefits: ["Prihranek časa", "Instant insights", "Živy dashboard"],
-    gradient: "from-neon-pink to-neon-cyan"
   },
   {
     id: 5,
@@ -38,7 +34,6 @@ const services = [
     description: "Inteligentni chatbot za 24/7 podporo, RPA avtomatizacija in večjezikovne rešitve.",
     icon: "🤖",
     benefits: ["70-80% avtomatizacija", "Hitri odzivi", "Skalabilnost"],
-    gradient: "from-neon-lime to-neon-cyan"
   },
   {
     id: 6,
@@ -46,58 +41,42 @@ const services = [
     description: "Avtomatski prepisi in AI analiza pogovorov s sentiment detection in ekstraktcijo ključnih informacij.",
     icon: "🎙️",
     benefits: ["Real-time zapisi", "Sentiment analiza", "CRM integracija"],
-    gradient: "from-neon-blue to-neon-lime"
   }
 ];
 ---
 
-<section class="py-20 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl sm:text-5xl font-bold mb-4">
-        <span class="bg-gradient-to-r from-neon-cyan to-neon-purple bg-clip-text text-transparent">
-          Naše Storitve
-        </span>
+<section id="storitve" class="services theme-light" aria-label="Storitve">
+  <div class="wrap svc-grid">
+    <div class="svc-intro">
+      <p class="chapter">02 — Storitve</p>
+      <h2 class="display display-l" data-rise-group>
+        <span class="line"><span class="mask"><span class="rise">Naše</span></span></span>
+        <span class="line"><span class="mask"><span class="rise">Storitve</span></span></span>
       </h2>
-      <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+      <p class="lede-sm" data-split>
         Šest produktiziranih rešitev, ki so prepletene s sodobno tehnologijo in dolgoletnimi izkušnjami.
       </p>
+      <p class="svc-progress" aria-hidden="true"><span data-svc-current>01</span> — 06</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="svc-stack">
       {services.map((service) => (
-        <div
-          key={service.id}
-          class="group relative rounded-xl overflow-hidden bg-[#1a1f3a] border border-[#2d3561] hover:border-neon-cyan/50 transition-all duration-300 hover:shadow-lg hover:shadow-neon-cyan/20 p-6 hover:translate-y-[-8px]"
-        >
-          <!-- Gradient background on hover -->
-          <div class={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
-
-          <div class="relative z-10">
-            <div class="text-4xl mb-4">{service.icon}</div>
-
-            <h3 class="text-xl font-bold mb-2 text-white group-hover:text-neon-cyan transition-colors">
-              {service.title}
-            </h3>
-
-            <p class="text-gray-400 text-sm mb-6 leading-relaxed">
-              {service.description}
+        <article class="svc-card" style={`z-index:${service.id}`}>
+          <div class="svc-card-inner theme-dark">
+            <p class="svc-index">
+              <span class="svc-icon" aria-hidden="true">{service.icon}</span>
+              {String(service.id).padStart(2, '0')}
             </p>
-
-            <div class="space-y-2 mb-6">
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+            <ul class="svc-benefits">
               {service.benefits.map((benefit) => (
-                <div key={benefit} class="flex items-start gap-2 text-sm text-gray-300">
-                  <span class="text-neon-cyan mt-1">✓</span>
-                  <span>{benefit}</span>
-                </div>
+                <li>{benefit}</li>
               ))}
-            </div>
-
-            <a href="#kontakt" class="block w-full py-2 px-4 rounded-lg bg-dark-border/50 text-neon-cyan hover:bg-dark-border transition-colors text-sm font-semibold text-center">
-              Več informacij →
-            </a>
+            </ul>
+            <a href="#kontakt" class="link-arrow">Več informacij →</a>
           </div>
-        </div>
+        </article>
       ))}
     </div>
   </div>
